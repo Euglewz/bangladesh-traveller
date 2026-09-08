@@ -37,10 +37,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+Route::resource('destinations', \App\Http\Controllers\Admin\DestinationController::class);
+Route::resource('packages', \App\Http\Controllers\Admin\PackageController::class);
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('users', AdminUserController::class)->except(['create', 'store', 'show']);
 });
-Route::resource('destinations', \App\Http\Controllers\Admin\DestinationController::class);
+
 require __DIR__.'/auth.php';
