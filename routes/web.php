@@ -42,5 +42,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('users', AdminUserController::class)->except(['create', 'store', 'show']);
 });
-
+Route::resource('destinations', \App\Http\Controllers\Admin\DestinationController::class);
 require __DIR__.'/auth.php';
