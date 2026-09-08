@@ -19,7 +19,8 @@
                 <!-- Form Header Accent Bar -->
                 <div class="h-2 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500"></div>
 
-                <form class="p-8 space-y-6">
+                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="p-8 space-y-6">
+    @csrf
                     <!-- Name Row -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
